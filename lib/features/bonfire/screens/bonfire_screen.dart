@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_spacing.dart';
+import '../widgets/header/header_widget.dart';
+import '../providers/header_provider.dart';
+import 'package:riverpod/riverpod.dart';
 
-class BonfireScreen extends StatelessWidget {
+class BonfireScreen extends ConsumerWidget {
   const BonfireScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final headerInfo = ref.watch(headerProvider);
+
     return Scaffold(
       backgroundColor: AppColors.background,
       body: SafeArea(
@@ -18,8 +24,11 @@ class BonfireScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Header Section (Stroll Bonfire + Time/Participants)
-              
+              HeaderWidget(
+                timeRemaining: headerInfo.timeRemaining,
+                participantCount: headerInfo.participantCount,
+              ),
+              const SizedBox(height: AppSpacing.headerToProfile),
               // Profile Section (Avatar + Name + Age)
               
               // Question Section (Question + Quote)

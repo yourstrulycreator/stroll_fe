@@ -32,4 +32,10 @@ class AppColors {
   
   // Status Bar
   static const Color statusBarBackground = Colors.transparent;
+  
+  // Header Colors
+  static const Color headerTitle = Color(0xFFE5DDFF);
+  static const Color headerGlowInner = Color(0xFF9D8FFF);
+  static const Color headerGlowOuter = Color(0xFF6E56F8);
+  static const Color headerIconText = Colors.white;  // For icons and secondary text
 } 
