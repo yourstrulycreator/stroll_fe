@@ -1,25 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'navigation_provider.dart';
+part of 'header_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$navigationHash() => r'8009f807de434de3aec8e0fab65771cc9e986847';
+String _$headerHash() => r'a72093112afe3bc9846a98a903524a6a872af2fc';
 
-/// See also [Navigation].
-@ProviderFor(Navigation)
-final navigationProvider =
-    AutoDisposeNotifierProvider<Navigation, List<NavItem>>.internal(
-  Navigation.new,
-  name: r'navigationProvider',
+/// See also [Header].
+@ProviderFor(Header)
+final headerProvider = AutoDisposeNotifierProvider<Header, HeaderInfo>.internal(
+  Header.new,
+  name: r'headerProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$navigationHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$headerHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$Navigation = AutoDisposeNotifier<List<NavItem>>;
+typedef _$Header = AutoDisposeNotifier<HeaderInfo>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
