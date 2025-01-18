@@ -1,8 +1,19 @@
-# fe_interview_task
+# Stroll Bonfire Screen
 
-A new Flutter project.
+A Flutter implementation of the Stroll Bonfire screen design from Figma.
+
+![Stroll Bonfire Screen](screenshot.png)
 
 ## Getting Started
 
-This project is a front end interview task for Flutter.
+1. Clone the repository
+2. Install dependencies
+3. Run the app
 
+
+## Features
+- Responsive background image with gradient overlay
+- Interactive option selection
+- Custom fonts (Proxima Nova)
+- SVG icon support
+- Riverpod state management
