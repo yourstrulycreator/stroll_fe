@@ -5,6 +5,8 @@ import '../../../core/constants/app_spacing.dart';
 import '../widgets/header/header_widget.dart';
 import '../providers/header_provider.dart';
 import 'package:riverpod/riverpod.dart';
+import '../providers/options_provider.dart';
+import '../widgets/options/options_section.dart';
 
 class BonfireScreen extends ConsumerWidget {
   const BonfireScreen({super.key});
@@ -12,6 +14,7 @@ class BonfireScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final headerInfo = ref.watch(headerProvider);
+    final options = ref.watch(optionsProvider);
 
     return Scaffold(
       backgroundColor: AppColors.background,
@@ -29,13 +32,19 @@ class BonfireScreen extends ConsumerWidget {
                 participantCount: headerInfo.participantCount,
               ),
               const SizedBox(height: AppSpacing.headerToProfile),
-              // Profile Section (Avatar + Name + Age)
-              
-              // Question Section (Question + Quote)
-              
-              // Options Section (Multiple Choice)
-              
-              // Bottom Actions (Mic + Next)
+              const Spacer(),
+              OptionsSection(
+                options: options,
+                onOptionSelected: (option) {
+                  ref.read(optionsProvider.notifier).selectOption(option);
+                },
+                onNext: () {
+                  // Handle next action
+                },
+                onMicTap: () {
+                  // Handle mic tap
+                },
+              ),
             ],
           ),
         ),
