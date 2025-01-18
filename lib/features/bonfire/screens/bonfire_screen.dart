@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:stroll_fe/features/bonfire/widgets/background/background_widget.dart';
 import '../../../core/constants/app_colors.dart';
 import '../../../core/constants/app_spacing.dart';
 import '../widgets/header/header_widget.dart';
@@ -21,47 +22,52 @@ class BonfireScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      body: SafeArea(
-        bottom: true,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(
-            AppSpacing.screenPaddingHorizontal,
-            AppSpacing.screenPaddingVertical,
-            AppSpacing.screenPaddingHorizontal,
-            0,
-          ),
-          child: Column(
-            children: [
-              HeaderWidget(
-                timeRemaining: headerInfo.timeRemaining,
-                participantCount: headerInfo.participantCount,
+      body: Stack(
+        children: [
+          const BackgroundWidget(),
+          SafeArea(
+            bottom: false,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(
+                AppSpacing.screenPaddingHorizontal,
+                AppSpacing.screenPaddingVertical,
+                AppSpacing.screenPaddingHorizontal,
+                0,
               ),
-              const Spacer(),
-              Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    QuestionSection(question: question),
-                    const SizedBox(height: 16),
-                    OptionsSection(
-                      options: options,
-                      onOptionSelected: (option) {
-                        ref.read(optionsProvider.notifier).selectOption(option);
-                      },
-                      onNext: () {
-                        // Handle next action
-                      },
-                      onMicTap: () {
-                        // Handle mic tap
-                      },
+              child: Column(
+                children: [
+                  HeaderWidget(
+                    timeRemaining: headerInfo.timeRemaining,
+                    participantCount: headerInfo.participantCount,
+                  ),
+                  const Spacer(),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        QuestionSection(question: question),
+                        const SizedBox(height: 16),
+                        OptionsSection(
+                          options: options,
+                          onOptionSelected: (option) {
+                            ref.read(optionsProvider.notifier).selectOption(option);
+                          },
+                          onNext: () {
+                            // Handle next action
+                          },
+                          onMicTap: () {
+                            // Handle mic tap
+                          },
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

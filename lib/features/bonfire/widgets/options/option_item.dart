@@ -21,13 +21,11 @@ class OptionItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: option.isSelected 
-                ? AppColors.optionSelectedBorder 
+                ? AppColors.primary 
                 : AppColors.optionBorder,
-            width: 1,
+            width: option.isSelected ? 2 : 1,
           ),
-          color: option.isSelected 
-              ? AppColors.optionSelected.withOpacity(0.2)
-              : Colors.transparent,
+          color: const Color(0xFF232A2E),
         ),
         child: Row(
           children: [
@@ -38,19 +36,18 @@ class OptionItem extends StatelessWidget {
               height: 24,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
+                color: option.isSelected ? AppColors.primary : Colors.transparent,
                 border: Border.all(
                   color: option.isSelected 
-                      ? AppColors.optionSelectedBorder 
-                      : AppColors.optionBorder,
+                      ? AppColors.primary 
+                      : Colors.white,
                 ),
               ),
               child: Center(
                 child: Text(
                   option.letter.label,
-                  style: TextStyle(
-                    color: option.isSelected 
-                        ? AppColors.primary 
-                        : Colors.white,
+                  style: const TextStyle(
+                    color: Color(0xFFC4C4C4),
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),
@@ -60,14 +57,17 @@ class OptionItem extends StatelessWidget {
             const SizedBox(width: 12),
             // Option Text
             Expanded(
-              child: Text(
-                option.text,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 14,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: Text(
+                  option.text,
+                  style: const TextStyle(
+                    color: Color(0xFFC4C4C4),
+                    fontSize: 14,
+                  ),
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
               ),
             ),
             const SizedBox(width: 16),

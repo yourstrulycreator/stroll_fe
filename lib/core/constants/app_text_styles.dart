@@ -1,36 +1,41 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
+import 'app_fonts.dart';
 
 class AppTextStyles {
   // Headings
-  static TextStyle heading1 = GoogleFonts.inter(
+  static const TextStyle heading1 = TextStyle(
+    fontFamily: AppFonts.proximaNova,
     fontSize: 24,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
   );
   
-  static TextStyle heading2 = GoogleFonts.inter(
+  static const TextStyle heading2 = TextStyle(
+    fontFamily: AppFonts.proximaNova,
     fontSize: 20,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
   );
 
   // Body Text
-  static TextStyle bodyLarge = GoogleFonts.inter(
+  static const TextStyle bodyLarge = TextStyle(
+    fontFamily: AppFonts.proximaNova,
     fontSize: 16,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
   );
 
-  static TextStyle bodyRegular = GoogleFonts.inter(
+  static const TextStyle bodyRegular = TextStyle(
+    fontFamily: AppFonts.proximaNova,
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: AppColors.textPrimary,
   );
 
   // Special Text
-  static TextStyle quote = GoogleFonts.inter(
+  static const TextStyle quote = TextStyle(
+    fontFamily: AppFonts.proximaNova,
     fontSize: 14,
     fontWeight: FontWeight.w400,
     fontStyle: FontStyle.italic,
@@ -38,21 +43,24 @@ class AppTextStyles {
   );
 
   // Meta Information
-  static TextStyle metaInfo = GoogleFonts.inter(
+  static const TextStyle metaInfo = TextStyle(
+    fontFamily: AppFonts.proximaNova,
     fontSize: 14,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w600,
     color: AppColors.textSecondary,
   );
 
   // Option Letter
-  static TextStyle optionLetter = GoogleFonts.inter(
+  static const TextStyle optionLetter = TextStyle(
+    fontFamily: AppFonts.proximaNova,
     fontSize: 16,
     fontWeight: FontWeight.w600,
     color: AppColors.textPrimary,
   );
 
   // Bottom Text
-  static TextStyle instructionText = GoogleFonts.inter(
+  static const TextStyle instructionText = TextStyle(
+    fontFamily: AppFonts.proximaNova,
     fontSize: 14,
     fontWeight: FontWeight.w400,
     color: AppColors.textSecondary,

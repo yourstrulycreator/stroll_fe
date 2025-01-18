@@ -42,14 +42,14 @@ class OptionsSection extends StatelessWidget {
             onTap: () => onOptionSelected(options[index]),
           ),
         ),
-        const SizedBox(height: 24),
+        const SizedBox(height: 16),
         // Bottom Row with Instructions and Actions
         Row(
           children: [
             // Instructions Text
-            Column(
+            const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'Pick your option',
                   style: TextStyle(
@@ -58,11 +58,11 @@ class OptionsSection extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                SizedBox(height: 4),
+                SizedBox(height: 1),
                 Text(
                   'See who has a similar mind',
                   style: TextStyle(
-                    color: AppColors.textSecondary,
+                    color: Colors.white,
                     fontSize: 14,
                   ),
                 ),
@@ -83,6 +83,7 @@ class OptionsSection extends StatelessWidget {
                   isCustomIcon: true,
                   onTap: onNext,
                   color: AppColors.primary,
+                  isPrimary: true,
                 ),
               ],
             ),
@@ -98,12 +99,14 @@ class _ActionButton extends StatelessWidget {
   final VoidCallback onTap;
   final Color color;
   final bool isCustomIcon;
+  final bool isPrimary;
 
   const _ActionButton({
     required this.icon,
     required this.onTap,
     required this.color,
     this.isCustomIcon = false,
+    this.isPrimary = false,
   });
 
   @override
@@ -115,14 +118,25 @@ class _ActionButton extends StatelessWidget {
         height: 48,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(color: AppColors.optionBorder),
+          color: isPrimary ? AppColors.primary : Colors.transparent,
+          border: Border.all(
+            width: 2,
+            color: isPrimary ? Colors.transparent : AppColors.primary,
+          ),
         ),
         child: Center(
           child: isCustomIcon
-              ? Icon(icon, color: color, size: 24)
+              ? Icon(
+                  icon,
+                  color: isPrimary ? Colors.black : color,
+                  size: 24,
+                )
               : SvgPicture.asset(
                   icon,
-                  colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+                  colorFilter: ColorFilter.mode(
+                    isPrimary ? Colors.black : AppColors.primary,
+                    BlendMode.srcIn,
+                  ),
                 ),
         ),
       ),
