@@ -8,6 +8,7 @@ class AppAssets {
   static const String dropdownIcon = "assets/icons/dropdown.svg";
   static const String clockIcon = "assets/icons/clock-sm.svg";
   static const String usersIcon = "assets/icons/user-sm.svg";
+  
   // Images
   static const String defaultAvatar = 'assets/images/avatar.jpeg';
   static const String backgroundImage = 'assets/images/background.jpeg';
